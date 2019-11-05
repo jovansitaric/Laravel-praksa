@@ -50,7 +50,7 @@ public $successStatus = 200;
         $success['token'] =  $user->createToken('MyApp')-> accessToken; 
         $success['name'] =  $user->name;
         
-        return response()->json(['success'=>$success], $this-> successStatus); 
+        return $success;
     }
 /** 
      * details api 
