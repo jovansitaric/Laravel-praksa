@@ -27,7 +27,11 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['user_id'] = auth()->user()->id;
+        $task = Task::create($data);
+
+        return $task;
     }
 
     /**
@@ -38,7 +42,7 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+        return Task::find($id);
     }
 
     /**
@@ -50,7 +54,10 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $task = Task::find($id);
+        $task->update($request->all());
+
+        return $task;
     }
 
     /**
