@@ -17,6 +17,8 @@ class TaskController extends Controller
     public function index()
     {
         return new TaskResource(Task::first());
+        // $tasks = Task::get()->toJson(JSON_PRETTY_PRINT);
+        // return response($tasks, 200);
     }
 
     /**
@@ -26,8 +28,15 @@ class TaskController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {        
+    //     $task = new Task;
+    //     $task->title = $request->title;
+    //     $task->description = $request->description;
+    //     $task->save(); 
+
+    //     return response()->json([
+    //         "message" => "task record created"
+    //     ], 201);    
     }
 
     /**

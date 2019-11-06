@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    //
+    protected $tasks = 'students';
+
+    protected $fillable = ['title', 'description'];
 
     public function hasUser() {
         {
