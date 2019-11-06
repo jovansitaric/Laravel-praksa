@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Task as TaskResource;
 use App\Task;
+use App\User;
+use Auth;
 
 class TaskController extends Controller
 {
@@ -16,7 +18,13 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return new TaskResource(Task::all());
+        $user = Auth::user();
+        $tasks = $user->tasks;
+
+        return [
+            'user' => $user,
+            'tasks' => $tasks
+        ];
     }
 
     /**
