@@ -7,4 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     //
+
+    public function hasUser() {
+        {
+            return $this->belongsTo('App\User', 'id');
+        }
+    }
 }
