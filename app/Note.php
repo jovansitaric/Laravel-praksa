@@ -11,7 +11,7 @@ class Note extends Model
     protected $fillable = ['title', 'description', 'task_id'];
 
     public function task() {
-       return $this.hasMany('App\Note');
+       return $this->hasOne('App\Task');
     }
 
 }

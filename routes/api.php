@@ -36,6 +36,6 @@ Route::group(['middleware' => 'auth:api'], function(){
 Route::namespace('Api')->middleware('auth:api')->group(function () {
     Route::apiResources([
             'tasks' => 'TaskController',
-            'notes' => 'NoteController'
+            'tasks/{task}/notes' => 'NoteController'
         ]);
 });

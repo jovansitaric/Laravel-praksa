@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\NoteResource;
 use App\Task;
 use App\Note;
+use App\User;
 use Auth;
 
 class NoteController extends Controller
@@ -16,11 +17,10 @@ class NoteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($task)
     {
-        $tasks = Task::find();
+        $tasks = Task::find($task);
         $notes = $tasks->notes;
-
         return [
             'tasks' => $tasks,
             'notes' => $notes

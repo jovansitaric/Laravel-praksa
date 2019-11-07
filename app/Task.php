@@ -15,7 +15,7 @@ class Task extends Model
     }    
 
     public function notes() {
-        return $this.hasMany('App\Note');
+        return $this->hasMany('App\Note');
     }
 
 }
