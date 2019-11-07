@@ -50,7 +50,11 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        return Task::find($id);
+        $task = Task::find($id);
+        return [
+            'task' => $task,
+            'notes' => $task->notes
+        ];
     }
 
     /**

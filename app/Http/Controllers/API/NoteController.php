@@ -19,13 +19,6 @@ class NoteController extends Controller
      */
     public function index($task)
     {
-        $tasks = Task::find($task);
-        $notes = $tasks->notes;
-        return [
-            'tasks' => $tasks,
-            'notes' => $notes
-        ];
-
     }
 
     /**
@@ -34,10 +27,10 @@ class NoteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $task)
     {
         $data = $request->all();
-        $data['note_id'] = note()->id;
+        $data['task_id'] = $task;
         $note = Note::create($data);
 
         return $note;
