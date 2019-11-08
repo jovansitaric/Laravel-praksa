@@ -19,6 +19,7 @@ class NoteController extends Controller
      */
     public function index($task)
     {
+        return Note::find($task);
     }
 
     /**
@@ -74,6 +75,7 @@ class NoteController extends Controller
         // dd($note);
         $note->delete();
 
-        return response('deleted', 200);
+        return $note;
+        // return response('deleted', 200);
     }
 }
