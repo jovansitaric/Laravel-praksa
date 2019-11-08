@@ -68,11 +68,12 @@ class NoteController extends Controller
      * @param  \App\Note  $note
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($task, $note)
     {
-        $note = Note::find($id);
+        $note = Note::find($note);    
+        // dd($note);
         $note->delete();
 
-        return $note;
+        return response('deleted', 200);
     }
 }
